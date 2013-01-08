@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'slim'
 
 class Restaurant
   attr_accessor :name, :location, :fast, :cheap
@@ -18,24 +17,26 @@ mesa=Restaurant.new("Mesa","dinkytown",true,true)
 wally=Restaurant.new("Wally's","dinkytown")
 camdi=Restaurant.new("Camdi","dinkytown")
 
-restaurantlist=[bona,jasmine,mesa,wally]
+restaurantlist=[bona,jasmine,mesa,wally,camdi]
 
 get '/' do
-  slim :index
+  erb :index
 end
 
 post '/lunch' do
   consider=Array.new
   if params[:location] == "any"
-    consider = restaurantlist
+    consider = restaurantlist.entries
   else
-    restaurantlist.each do |restaurant|
-      if params[:location] == restaurant.location
-        consider.push(restaurant)
-      end
-    end
+    consider = restaurantlist.select{|restaurant| restaurant.location == params[:location]}
+  end
+  if params[:fast] == "yes"
+    consider.select!{|restaurant| restaurant.fast}
+  end
+  if params[:cheap] == "yes"
+    consider.select!{|restaurant| restaurant.cheap}
   end
   r=rand(consider.size)
   @choice = consider[r]
-  slim :lunch
+  erb :lunch
 end
