@@ -1,4 +1,21 @@
-<form action="/form" method="post">
-  <input type="text" name="message">
-  <input type="submit">
+<form action="/lunch" method="post">
+  <fieldset>
+  <label> Location? </label>
+  <select name="location">
+  <option value="any" selected>Any
+  <option value="wash">Washington Ave
+  <option value="dinkytown">Dinkytown
+  </select>
+  <label> Fast?</label>
+  <select name="fast">
+  <option value="yes">Yes
+  <option value="no" selected>No
+  </select></br> 
+  <label> Cheap?</label>
+  <select name="cheap">
+  <option value="yes">Yes
+  <option value="no" selected>No
+  </select></br>
+  <input type="submit" class="btn">
+  </fieldset>
 </form>
