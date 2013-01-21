@@ -16,8 +16,10 @@ jasmine=Restaurant.new("Jasmine Orchard","wash")
 mesa=Restaurant.new("Mesa","dinkytown",true,true)
 wally=Restaurant.new("Wally's","dinkytown")
 camdi=Restaurant.new("Camdi","dinkytown")
+punch=Restaurant.new("Punch","wash",true,false)
+chipotle=Restaurant.new("Chipotle","wash",true,false)
 
-restaurantlist=[bona,jasmine,mesa,wally,camdi]
+restaurantlist=[bona,jasmine,mesa,wally,camdi,punch,chipotle]
 
 get '/' do
   erb :index
