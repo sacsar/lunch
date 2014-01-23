@@ -18,6 +18,7 @@ wally=Restaurant.new("Wally's","dinkytown")
 camdi=Restaurant.new("Camdi","dinkytown")
 punch=Restaurant.new("Punch","wash",true,false)
 chipotle=Restaurant.new("Chipotle","wash",true,false)
+myburger=Restaurant.new("MyBurger","wash",true)
 
 restaurantlist=[bona,jasmine,mesa,wally,camdi,punch,chipotle]
 
